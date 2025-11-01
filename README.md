@@ -66,3 +66,47 @@ This is a learning project. Feel free to explore, modify, and experiment with th
 
 See [LICENSE](LICENSE) file for details.
 
+
+## Ignition Timing Map 3D Visualizer
+
+Python 3.11 application to load ignition timing maps from CSV, convert them into 2D grids, and visualize them as interactive 3D surfaces. Built for incremental learning with clear milestones.
+
+### Setup
+
+1. Create and activate a virtual environment (Windows PowerShell):
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+2. Install dependencies:
+```powershell
+pip install -r requirements.txt
+```
+
+### Quickstart
+
+1. Generate mock data (after the script is created in the next milestone):
+```powershell
+python scripts/create_mock_map.py
+```
+
+2. Run the app:
+```powershell
+python -m visualizer.app
+```
+
+You should see a window. Click "Load Stock Map" to render the 3D surface from `stock_map.csv`.
+
+### CSV Format
+
+Tidy rows with columns:
+- `RPM` (numeric)
+- `Load` (numeric)
+- `Timing` (numeric)
+
+Example row:
+```
+RPM,Load,Timing
+2000,40,6.0
+```
