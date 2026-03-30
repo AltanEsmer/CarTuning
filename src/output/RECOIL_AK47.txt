@@ -3,62 +3,63 @@ Activation: While Assigned Button is Held
 Repeat: None
 
 Sequence:
-  1. Delay: 102.6ms
+  1. Delay: 99.0ms
   2. Mouse Move: Relative Y:7 X:-2
-  3. Delay: 99.4ms
-  4. Mouse Move: Relative Y:7 X:-2
-  5. Delay: 105.3ms
+  3. Delay: 93.8ms
+  4. Mouse Move: Relative Y:6 X:-2
+  5. Delay: 107.2ms
   6. Mouse Move: Relative Y:6 X:-1
-  7. Delay: 101.7ms
-  8. Mouse Move: Relative Y:7 X:-2
-  9. Delay: 102.0ms
-  10. Mouse Move: Relative Y:6 X:-1
-  11. Delay: 105.2ms
-  12. Mouse Move: Relative Y:4 X:-1
-  13. Delay: 95.8ms
-  14. Mouse Move: Relative Y:3 X:-1
-  15. Delay: 106.0ms
-  16. Mouse Move: Relative Y:4 X:0
-  17. Delay: 103.9ms
-  18. Mouse Move: Relative Y:5 X:-1
-  19. Delay: 102.3ms
-  20. Mouse Move: Relative Y:5 X:0
-  21. Delay: 95.0ms
-  22. Mouse Move: Relative Y:4 X:0
-  23. Delay: 101.2ms
-  24. Mouse Move: Relative Y:5 X:0
-  25. Delay: 104.4ms
+  7. Delay: 94.3ms
+  8. Mouse Move: Relative Y:6 X:-1
+  9. Delay: 98.2ms
+  10. Mouse Move: Relative Y:7 X:-1
+  11. Delay: 99.9ms
+  12. Mouse Move: Relative Y:3 X:-1
+  13. Delay: 97.6ms
+  14. Mouse Move: Relative Y:5 X:-1
+  15. Delay: 101.9ms
+  16. Mouse Move: Relative Y:4 X:-1
+  17. Delay: 101.8ms
+  18. Mouse Move: Relative Y:4 X:0
+  19. Delay: 99.7ms
+  20. Mouse Move: Relative Y:4 X:0
+  21. Delay: 94.8ms
+  22. Mouse Move: Relative Y:4 X:-1
+  23. Delay: 94.1ms
+  24. Mouse Move: Relative Y:4 X:0
+  25. Delay: 101.6ms
   26. Mouse Move: Relative Y:3 X:1
-  27. Delay: 94.8ms
-  28. Mouse Move: Relative Y:3 X:1
-  29. Delay: 91.8ms
+  27. Delay: 101.1ms
+  28. Mouse Move: Relative Y:4 X:1
+  29. Delay: 99.5ms
   30. Mouse Move: Relative Y:3 X:1
-  31. Delay: 101.0ms
-  32. Mouse Move: Relative Y:2 X:1
-  33. Delay: 98.7ms
-  34. Mouse Move: Relative Y:4 X:1
-  35. Delay: 109.4ms
-  36. Mouse Move: Relative Y:3 X:1
-  37. Delay: 102.8ms
-  38. Mouse Move: Relative Y:4 X:2
-  39. Delay: 90.3ms
-  40. Mouse Move: Relative Y:4 X:1
-  41. Delay: 96.4ms
-  42. Mouse Move: Relative Y:2 X:1
-  43. Delay: 98.85360561446619ms
-  44. Delay: 96.3ms
-  45. Mouse Move: Relative Y:2 X:2
-  46. Delay: 100.9ms
-  47. Mouse Move: Relative Y:1 X:2
-  48. Delay: 101.8ms
-  49. Mouse Move: Relative Y:3 X:2
-  50. Delay: 90.0ms
-  51. Mouse Move: Relative Y:3 X:2
-  52. Delay: 94.8ms
-  53. Mouse Move: Relative Y:2 X:3
-  54. Delay: 109.6ms
-  55. Mouse Move: Relative Y:3 X:2
-  56. Delay: 97.3ms
-  57. Mouse Move: Relative Y:2 X:3
-  58. Delay: 103.0ms
-  59. Mouse Move: Relative Y:2 X:2
+  31. Delay: 104.3ms
+  32. Mouse Move: Relative Y:3 X:1
+  33. Delay: 91.7ms
+  34. Mouse Move: Relative Y:3 X:1
+  35. Delay: 98.2ms
+  36. Mouse Move: Relative Y:3 X:2
+  37. Delay: 96.3ms
+  38. Mouse Move: Relative Y:3 X:2
+  39. Delay: 103.6ms
+  40. Mouse Move: Relative Y:3 X:2
+  41. Delay: 104.6ms
+  42. Mouse Move: Relative Y:1 X:1
+  43. Delay: 97.4ms
+  44. Mouse Move: Relative Y:2 X:2
+  45. Delay: 104.7ms
+  46. Mouse Move: Relative Y:2 X:2
+  47. Delay: 104.5ms
+  48. Mouse Move: Relative Y:2 X:2
+  49. Delay: 104.0ms
+  50. Mouse Move: Relative Y:2 X:2
+  51. Delay: 104.4ms
+  52. Mouse Move: Relative Y:2 X:2
+  53. Delay: 104.6ms
+  54. Mouse Move: Relative Y:3 X:2
+  55. Delay: 97.3ms
+  56. Mouse Move: Relative Y:3 X:2
+  57. Delay: 90.4ms
+  58. Mouse Move: Relative Y:4 X:3
+  59. Delay: 99.7ms
+  60. Mouse Move: Relative Y:1 X:2

@@ -4,199 +4,197 @@ Repeat: None
 
 Sequence:
   1. Delay: 90.0ms
-  2. Mouse Move: Relative Y:2 X:0
-  3. Delay: 78.9ms
-  4. Mouse Move: Relative Y:3 X:0
-  5. Delay: 89.9ms
+  2. Mouse Move: Relative Y:4 X:0
+  3. Delay: 77.6ms
+  4. Mouse Move: Relative Y:4 X:-1
+  5. Delay: 87.1ms
   6. Mouse Move: Relative Y:3 X:0
-  7. Delay: 89.1ms
+  7. Delay: 73.8ms
   8. Mouse Move: Relative Y:2 X:0
-  9. Delay: 75.2ms
-  10. Mouse Move: Relative Y:2 X:0
-  11. Delay: 71.4ms
-  12. Mouse Move: Relative Y:3 X:0
-  13. Delay: 75.6ms
+  9. Delay: 82.4ms
+  10. Mouse Move: Relative Y:2 X:1
+  11. Delay: 82.3ms
+  12. Mouse Move: Relative Y:4 X:-1
+  13. Delay: 82.2ms
   14. Mouse Move: Relative Y:4 X:0
-  15. Delay: 90.0ms
-  16. Mouse Move: Relative Y:3 X:0
-  17. Delay: 77.0ms
-  18. Mouse Move: Relative Y:3 X:0
-  19. Delay: 78.2ms
-  20. Mouse Move: Relative Y:4 X:1
-  21. Delay: 77.65425204182813ms
-  22. Delay: 74.2ms
-  23. Mouse Move: Relative Y:3 X:1
-  24. Delay: 79.3ms
-  25. Mouse Move: Relative Y:3 X:-1
-  26. Delay: 76.7ms
+  15. Delay: 76.2ms
+  16. Mouse Move: Relative Y:5 X:0
+  17. Delay: 80.27624181943725ms
+  18. Delay: 78.5ms
+  19. Mouse Move: Relative Y:4 X:0
+  20. Delay: 82.8ms
+  21. Mouse Move: Relative Y:4 X:0
+  22. Delay: 78.4ms
+  23. Mouse Move: Relative Y:4 X:0
+  24. Delay: 90.0ms
+  25. Mouse Move: Relative Y:4 X:0
+  26. Delay: 83.5ms
   27. Mouse Move: Relative Y:4 X:0
-  28. Delay: 80.1ms
-  29. Mouse Move: Relative Y:3 X:0
-  30. Delay: 71.7ms
-  31. Mouse Move: Relative Y:5 X:0
-  32. Delay: 83.9ms
-  33. Mouse Move: Relative Y:5 X:-1
-  34. Delay: 77.9ms
+  28. Delay: 80.3ms
+  29. Mouse Move: Relative Y:4 X:1
+  30. Delay: 79.5ms
+  31. Mouse Move: Relative Y:4 X:0
+  32. Delay: 75.5ms
+  33. Mouse Move: Relative Y:4 X:0
+  34. Delay: 70.0ms
   35. Mouse Move: Relative Y:4 X:0
-  36. Delay: 82.5ms
+  36. Delay: 84.3ms
   37. Mouse Move: Relative Y:4 X:0
-  38. Delay: 74.5ms
-  39. Mouse Move: Relative Y:4 X:-1
-  40. Delay: 70.5ms
-  41. Mouse Move: Relative Y:3 X:0
-  42. Delay: 79.7ms
+  38. Delay: 75.7ms
+  39. Mouse Move: Relative Y:3 X:0
+  40. Delay: 85.5ms
+  41. Mouse Move: Relative Y:4 X:0
+  42. Delay: 78.8ms
   43. Mouse Move: Relative Y:3 X:0
-  44. Delay: 86.5ms
+  44. Delay: 73.9ms
   45. Mouse Move: Relative Y:4 X:0
-  46. Delay: 86.36139191821157ms
-  47. Delay: 80.6ms
-  48. Mouse Move: Relative Y:4 X:0
-  49. Delay: 87.3ms
-  50. Mouse Move: Relative Y:5 X:1
-  51. Delay: 80.2ms
-  52. Mouse Move: Relative Y:3 X:0
-  53. Delay: 83.6ms
-  54. Mouse Move: Relative Y:3 X:0
-  55. Delay: 90.0ms
-  56. Mouse Move: Relative Y:5 X:0
-  57. Delay: 87.8ms
-  58. Mouse Move: Relative Y:4 X:0
-  59. Delay: 79.3ms
-  60. Mouse Move: Relative Y:4 X:1
-  61. Delay: 76.0ms
-  62. Mouse Move: Relative Y:4 X:0
-  63. Delay: 82.4ms
-  64. Mouse Move: Relative Y:5 X:1
-  65. Delay: 75.6ms
-  66. Mouse Move: Relative Y:5 X:0
-  67. Delay: 78.8ms
-  68. Mouse Move: Relative Y:4 X:1
-  69. Delay: 87.3ms
-  70. Mouse Move: Relative Y:4 X:0
-  71. Delay: 73.5ms
-  72. Mouse Move: Relative Y:5 X:0
-  73. Delay: 89.5ms
-  74. Mouse Move: Relative Y:4 X:1
-  75. Delay: 75.6ms
-  76. Mouse Move: Relative Y:5 X:1
-  77. Delay: 79.0ms
-  78. Mouse Move: Relative Y:4 X:1
-  79. Delay: 83.7ms
-  80. Mouse Move: Relative Y:4 X:1
-  81. Delay: 83.7ms
-  82. Mouse Move: Relative Y:3 X:1
-  83. Delay: 80.2ms
-  84. Mouse Move: Relative Y:5 X:0
-  85. Delay: 75.4ms
-  86. Mouse Move: Relative Y:4 X:1
-  87. Delay: 86.6ms
-  88. Mouse Move: Relative Y:5 X:1
-  89. Delay: 85.9ms
-  90. Mouse Move: Relative Y:5 X:0
-  91. Delay: 72.6ms
-  92. Mouse Move: Relative Y:4 X:1
-  93. Delay: 73.1ms
-  94. Mouse Move: Relative Y:4 X:1
-  95. Delay: 70.0ms
-  96. Mouse Move: Relative Y:5 X:0
-  97. Delay: 90.0ms
-  98. Mouse Move: Relative Y:6 X:1
-  99. Delay: 85.2ms
-  100. Mouse Move: Relative Y:5 X:1
-  101. Delay: 73.5ms
-  102. Mouse Move: Relative Y:4 X:1
-  103. Delay: 82.3ms
-  104. Mouse Move: Relative Y:4 X:1
-  105. Delay: 81.2ms
-  106. Mouse Move: Relative Y:4 X:1
-  107. Delay: 79.7ms
-  108. Mouse Move: Relative Y:4 X:1
-  109. Delay: 79.1ms
-  110. Mouse Move: Relative Y:5 X:1
-  111. Delay: 82.8ms
-  112. Mouse Move: Relative Y:5 X:1
-  113. Delay: 82.3ms
-  114. Mouse Move: Relative Y:4 X:1
-  115. Delay: 81.9ms
-  116. Mouse Move: Relative Y:5 X:1
-  117. Delay: 86.0ms
-  118. Mouse Move: Relative Y:5 X:1
-  119. Delay: 76.3ms
-  120. Mouse Move: Relative Y:4 X:1
-  121. Delay: 82.0ms
-  122. Mouse Move: Relative Y:5 X:1
-  123. Delay: 78.9ms
-  124. Mouse Move: Relative Y:4 X:1
-  125. Delay: 77.6ms
-  126. Mouse Move: Relative Y:6 X:1
-  127. Delay: 73.1ms
-  128. Mouse Move: Relative Y:5 X:2
-  129. Delay: 80.8ms
-  130. Mouse Move: Relative Y:5 X:1
-  131. Delay: 76.5ms
-  132. Mouse Move: Relative Y:5 X:1
-  133. Delay: 73.2ms
-  134. Mouse Move: Relative Y:5 X:2
-  135. Delay: 82.1ms
-  136. Mouse Move: Relative Y:5 X:2
-  137. Delay: 82.4ms
-  138. Mouse Move: Relative Y:6 X:2
-  139. Delay: 78.6ms
-  140. Mouse Move: Relative Y:5 X:1
-  141. Delay: 72.1ms
-  142. Mouse Move: Relative Y:4 X:1
-  143. Delay: 89.5ms
-  144. Mouse Move: Relative Y:5 X:2
-  145. Delay: 74.8ms
-  146. Mouse Move: Relative Y:6 X:2
-  147. Delay: 78.1ms
-  148. Mouse Move: Relative Y:5 X:2
-  149. Delay: 75.6ms
-  150. Mouse Move: Relative Y:4 X:2
-  151. Delay: 82.1ms
-  152. Mouse Move: Relative Y:6 X:2
-  153. Delay: 78.3ms
-  154. Mouse Move: Relative Y:6 X:2
-  155. Delay: 75.5ms
-  156. Mouse Move: Relative Y:5 X:2
-  157. Delay: 80.6ms
-  158. Mouse Move: Relative Y:6 X:1
-  159. Delay: 84.8ms
-  160. Mouse Move: Relative Y:4 X:2
-  161. Delay: 79.2ms
-  162. Mouse Move: Relative Y:4 X:1
-  163. Delay: 75.3ms
-  164. Mouse Move: Relative Y:4 X:2
-  165. Delay: 82.8ms
-  166. Mouse Move: Relative Y:4 X:2
-  167. Delay: 77.4ms
-  168. Mouse Move: Relative Y:5 X:2
-  169. Delay: 87.8ms
-  170. Mouse Move: Relative Y:5 X:2
-  171. Delay: 74.6ms
-  172. Mouse Move: Relative Y:5 X:2
-  173. Delay: 79.0ms
-  174. Mouse Move: Relative Y:5 X:2
-  175. Delay: 85.4ms
-  176. Mouse Move: Relative Y:6 X:2
-  177. Delay: 74.2ms
-  178. Mouse Move: Relative Y:5 X:2
-  179. Delay: 84.2ms
-  180. Mouse Move: Relative Y:5 X:2
-  181. Delay: 90.0ms
-  182. Delay: 80.6ms
-  183. Mouse Move: Relative Y:5 X:2
-  184. Delay: 70.0ms
+  46. Delay: 80.0ms
+  47. Mouse Move: Relative Y:3 X:0
+  48. Delay: 76.1ms
+  49. Mouse Move: Relative Y:4 X:1
+  50. Delay: 90.0ms
+  51. Delay: 74.7ms
+  52. Mouse Move: Relative Y:4 X:0
+  53. Delay: 72.3035379630997ms
+  54. Delay: 86.3ms
+  55. Mouse Move: Relative Y:5 X:1
+  56. Delay: 83.7ms
+  57. Mouse Move: Relative Y:4 X:1
+  58. Delay: 72.5ms
+  59. Mouse Move: Relative Y:5 X:0
+  60. Delay: 77.5ms
+  61. Mouse Move: Relative Y:4 X:0
+  62. Delay: 82.6ms
+  63. Mouse Move: Relative Y:4 X:0
+  64. Delay: 77.5ms
+  65. Mouse Move: Relative Y:3 X:1
+  66. Delay: 85.3ms
+  67. Mouse Move: Relative Y:4 X:1
+  68. Delay: 90.0ms
+  69. Mouse Move: Relative Y:5 X:1
+  70. Delay: 82.0ms
+  71. Mouse Move: Relative Y:5 X:0
+  72. Delay: 79.0ms
+  73. Mouse Move: Relative Y:4 X:0
+  74. Delay: 73.0ms
+  75. Mouse Move: Relative Y:3 X:1
+  76. Delay: 74.0ms
+  77. Mouse Move: Relative Y:4 X:1
+  78. Delay: 75.0ms
+  79. Mouse Move: Relative Y:5 X:0
+  80. Delay: 87.0ms
+  81. Mouse Move: Relative Y:5 X:1
+  82. Delay: 87.1ms
+  83. Mouse Move: Relative Y:5 X:0
+  84. Delay: 75.8ms
+  85. Mouse Move: Relative Y:5 X:1
+  86. Delay: 76.1ms
+  87. Mouse Move: Relative Y:4 X:1
+  88. Delay: 85.1ms
+  89. Mouse Move: Relative Y:4 X:1
+  90. Delay: 75.0ms
+  91. Mouse Move: Relative Y:5 X:1
+  92. Delay: 77.5ms
+  93. Mouse Move: Relative Y:4 X:0
+  94. Delay: 83.2ms
+  95. Mouse Move: Relative Y:5 X:1
+  96. Delay: 71.3ms
+  97. Mouse Move: Relative Y:5 X:1
+  98. Delay: 76.0ms
+  99. Mouse Move: Relative Y:4 X:1
+  100. Delay: 77.2ms
+  101. Mouse Move: Relative Y:5 X:1
+  102. Delay: 82.2ms
+  103. Mouse Move: Relative Y:5 X:1
+  104. Delay: 83.0ms
+  105. Mouse Move: Relative Y:4 X:1
+  106. Delay: 78.1ms
+  107. Mouse Move: Relative Y:4 X:1
+  108. Delay: 81.6ms
+  109. Mouse Move: Relative Y:3 X:1
+  110. Delay: 77.9ms
+  111. Mouse Move: Relative Y:4 X:1
+  112. Delay: 83.4ms
+  113. Mouse Move: Relative Y:4 X:2
+  114. Delay: 78.1ms
+  115. Mouse Move: Relative Y:5 X:1
+  116. Delay: 85.0ms
+  117. Mouse Move: Relative Y:4 X:1
+  118. Delay: 85.0ms
+  119. Mouse Move: Relative Y:5 X:1
+  120. Delay: 74.5ms
+  121. Mouse Move: Relative Y:4 X:1
+  122. Delay: 72.6ms
+  123. Mouse Move: Relative Y:4 X:1
+  124. Delay: 81.3ms
+  125. Mouse Move: Relative Y:5 X:2
+  126. Delay: 86.7ms
+  127. Mouse Move: Relative Y:5 X:1
+  128. Delay: 84.6ms
+  129. Mouse Move: Relative Y:4 X:1
+  130. Delay: 79.6ms
+  131. Mouse Move: Relative Y:5 X:1
+  132. Delay: 85.1ms
+  133. Mouse Move: Relative Y:4 X:1
+  134. Delay: 84.4ms
+  135. Mouse Move: Relative Y:5 X:1
+  136. Delay: 79.9ms
+  137. Mouse Move: Relative Y:6 X:1
+  138. Delay: 82.3ms
+  139. Mouse Move: Relative Y:6 X:2
+  140. Delay: 86.1179125096089ms
+  141. Delay: 75.09378217389758ms
+  142. Delay: 81.8ms
+  143. Mouse Move: Relative Y:6 X:1
+  144. Delay: 84.5ms
+  145. Mouse Move: Relative Y:5 X:1
+  146. Delay: 82.8ms
+  147. Mouse Move: Relative Y:5 X:2
+  148. Delay: 81.8ms
+  149. Mouse Move: Relative Y:6 X:2
+  150. Delay: 73.7ms
+  151. Mouse Move: Relative Y:6 X:2
+  152. Delay: 74.6ms
+  153. Mouse Move: Relative Y:6 X:2
+  154. Delay: 73.8ms
+  155. Mouse Move: Relative Y:4 X:2
+  156. Delay: 90.0ms
+  157. Mouse Move: Relative Y:4 X:2
+  158. Delay: 79.7ms
+  159. Mouse Move: Relative Y:4 X:1
+  160. Delay: 81.9ms
+  161. Mouse Move: Relative Y:5 X:2
+  162. Delay: 73.6ms
+  163. Mouse Move: Relative Y:5 X:2
+  164. Delay: 75.4ms
+  165. Mouse Move: Relative Y:5 X:2
+  166. Delay: 76.2ms
+  167. Mouse Move: Relative Y:5 X:2
+  168. Delay: 83.5ms
+  169. Mouse Move: Relative Y:4 X:2
+  170. Delay: 80.3ms
+  171. Mouse Move: Relative Y:6 X:2
+  172. Delay: 78.0ms
+  173. Mouse Move: Relative Y:5 X:2
+  174. Delay: 72.8ms
+  175. Mouse Move: Relative Y:4 X:2
+  176. Delay: 86.1ms
+  177. Mouse Move: Relative Y:5 X:2
+  178. Delay: 84.6ms
+  179. Mouse Move: Relative Y:6 X:2
+  180. Delay: 83.2ms
+  181. Mouse Move: Relative Y:6 X:2
+  182. Delay: 88.4ms
+  183. Mouse Move: Relative Y:5 X:3
+  184. Delay: 87.1ms
   185. Mouse Move: Relative Y:5 X:2
-  186. Delay: 90.0ms
-  187. Mouse Move: Relative Y:6 X:2
-  188. Delay: 80.6ms
-  189. Mouse Move: Relative Y:5 X:2
-  190. Delay: 81.5ms
+  186. Delay: 84.6ms
+  187. Mouse Move: Relative Y:5 X:2
+  188. Delay: 78.2ms
+  189. Mouse Move: Relative Y:6 X:2
+  190. Delay: 82.6ms
   191. Mouse Move: Relative Y:6 X:2
-  192. Delay: 82.9ms
+  192. Delay: 84.5ms
   193. Mouse Move: Relative Y:6 X:2
-  194. Delay: 82.4ms
+  194. Delay: 74.4ms
   195. Mouse Move: Relative Y:6 X:2
-  196. Delay: 85.9ms
-  197. Mouse Move: Relative Y:6 X:2

@@ -39,19 +39,20 @@ The humanizer (`src/humanizer.py`) applies 5 layers of realistic imperfection:
 | Special Variance | ✅ Working | Custom SMG Y-spike (20% chance) |
 
 ### ✅ Phase 4: Output & Export — COMPLETE
-Synapse-ready macro files generated for all 6 weapons in `src/output/`:
+Synapse 4 native `.rzn` macro files generated for all 6 weapons in `src/output/`, plus `.txt` human-readable references:
 
-| File | Size | Contents |
-|------|------|----------|
-| `RECOIL_AK47.txt` | 1.8 KB | 30-shot humanized S-curve macro |
-| `RECOIL_LR300.txt` | 1.8 KB | 30-shot vertical compensation |
-| `RECOIL_M249.txt` | 5.8 KB | 100-shot ramping macro |
-| `RECOIL_MP5.txt` | 1.8 KB | 30-shot simple vertical |
-| `RECOIL_CUSTOM_SMG.txt` | 1.4 KB | 24-shot erratic pattern |
-| `RECOIL_THOMPSON.txt` | 1.8 KB | 30-shot gentle curve |
+| File | Format | Contents |
+|------|--------|----------|
+| `RECOIL_AK47.rzn` | Synapse 4 XML | 30-shot humanized S-curve macro |
+| `RECOIL_LR300.rzn` | Synapse 4 XML | 30-shot vertical compensation |
+| `RECOIL_M249.rzn` | Synapse 4 XML | 100-shot ramping macro |
+| `RECOIL_MP5.rzn` | Synapse 4 XML | 30-shot simple vertical |
+| `RECOIL_CUSTOM_SMG.rzn` | Synapse 4 XML | 24-shot erratic pattern |
+| `RECOIL_THOMPSON.rzn` | Synapse 4 XML | 30-shot gentle curve |
+| `RECOIL_*.txt` | Human-readable | Reference copies for review/debugging |
 
 ### ✅ Phase 5: Testing & Validation — COMPLETE
-- 42/42 unit tests passing (test_humanizer.py + test_generator.py)
+- 45/45 unit tests passing (test_humanizer.py + test_generator.py)
 - Pattern visualizer functional (generates PNG scatter plots)
 - Mouse logger built (requires pynput install for live recording)
 
@@ -96,10 +97,10 @@ Activate your AK macro during the recording, then analyze:
 python tools\mouse_logger.py --analyze ak47_test.csv
 ```
 
-### 🟢 Priority 5: Synapse Import
-Follow `docs/DEPLOYMENT.md` for step-by-step Synapse profile setup:
+### 🟢 Priority 5: Synapse 4 Import
+Follow `docs/DEPLOYMENT.md` for step-by-step Synapse 4 profile setup:
 1. Create RUST profile (800 DPI, 1000Hz, no acceleration, no angle snapping)
-2. Import macro files from `src/output/`
+2. Import `.rzn` files from `src/output/` (Synapse 4 → Macro → ⋮ → Import)
 3. Map toggle buttons (Button 4 = AK, Button 5 = LR-300, etc.)
 4. Test on a build/training server
 
@@ -138,11 +139,11 @@ python src\generator.py --weapon ak47 --seed 42 --stats
 python src\generator.py --list
 ```
 
-Output goes to `src/output/RECOIL_*.txt` — these are your Synapse-ready macro files.
+Output goes to `src/output/` — `.rzn` files for Synapse 4 import, `.txt` files for human reference.
 
 ### Run Tests
 ```bash
-# Run all tests (should see 42 passed)
+# Run all tests (should see 45 passed)
 python -m pytest tests\test_humanizer.py tests\test_generator.py -v
 
 # Quick run (less verbose)
@@ -211,18 +212,20 @@ CarTuning/
 │   │   ├── mp5.json                   #   MP5 (30 shots, simple)
 │   │   ├── custom_smg.json            #   Custom SMG (24 shots, erratic)
 │   │   └── thompson.json              #   Thompson (30 shots, gentle)
-│   └── output/                        # Generated Synapse macros
-│       ├── RECOIL_AK47.txt
-│       ├── RECOIL_LR300.txt
-│       ├── RECOIL_M249.txt
-│       ├── RECOIL_MP5.txt
-│       ├── RECOIL_CUSTOM_SMG.txt
-│       ├── RECOIL_THOMPSON.txt
+│   └── output/                        # Generated macros
+│       ├── RECOIL_AK47.rzn            #   Synapse 4 import (XML)
+│       ├── RECOIL_AK47.txt            #   Human-readable reference
+│       ├── RECOIL_LR300.rzn
+│       ├── RECOIL_M249.rzn
+│       ├── RECOIL_MP5.rzn
+│       ├── RECOIL_CUSTOM_SMG.rzn
+│       ├── RECOIL_THOMPSON.rzn
+│       ├── *.txt                       #   Reference copies
 │       └── plots/                     # Visualization PNGs
 │
 ├── tests/                             # Tests & visualization
 │   ├── test_humanizer.py              # 20 humanizer tests
-│   ├── test_generator.py              # 22 generator tests
+│   ├── test_generator.py              # 25 generator tests
 │   └── visualizer.py                  # Pattern visualization tool
 │
 └── tools/                             # Utility tools
@@ -238,13 +241,13 @@ CarTuning/
 | Documentation | ✅ 100% | 7 docs, ~87 KB total |
 | Weapon Profiles | ✅ 100% | 6 weapons, all JSON validated |
 | Humanizer Engine | ✅ 100% | 5 variance layers + special variance |
-| Macro Generator | ✅ 100% | Full pipeline, CLI, DPI scaling |
-| Synapse Export | ✅ 100% | 6 macro files generated |
-| Unit Tests | ✅ 100% | 42/42 passing |
+| Macro Generator | ✅ 100% | Full pipeline, CLI, DPI scaling, .rzn + .txt output |
+| Synapse 4 Export | ✅ 100% | 6 `.rzn` files + 6 `.txt` references generated |
+| Unit Tests | ✅ 100% | 45/45 passing |
 | Visualizer | ✅ 100% | 4 plot types, matplotlib working |
 | Mouse Logger | ⚠️ 95% | Built, needs `pip install pynput` |
 | Profile Tuning | ⏳ 0% | Review plots, adjust weapon JSONs |
-| Synapse Import | ⏳ 0% | Follow docs/DEPLOYMENT.md |
+| Synapse 4 Import | ⏳ 0% | Import `.rzn` files (docs/DEPLOYMENT.md) |
 | Real-World Testing | ⏳ 0% | Test on build/training server |
 
 **Bottom line:** The system is fully built and functional. What's left is your hands-on calibration and deployment.

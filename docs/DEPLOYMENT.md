@@ -1,6 +1,6 @@
 # CarTuning — Deployment & Synapse Configuration Guide
 
-Complete guide for deploying generated recoil compensation macros into Razer Synapse 3. Covers profile setup, macro importing, DPI scaling, testing, and maintenance.
+Complete guide for deploying generated recoil compensation macros into Razer Synapse 4. Covers profile setup, macro importing, DPI scaling, testing, and maintenance.
 
 > **Disclaimer**: This tool is for offline/training use only.
 
@@ -26,7 +26,7 @@ Before deploying, ensure the following are satisfied:
 
 - **Python 3.8+** installed and on PATH
 - **pytest** installed (`pip install pytest`)
-- **Razer Synapse 3** installed and fully updated
+- **Razer Synapse 4** installed and fully updated
 - All project dependencies installed (`pip install -r requirements.txt`)
 
 ### Validation
@@ -51,9 +51,9 @@ Before deploying, ensure the following are satisfied:
 
 ### 2.1 Create the RUST Profile
 
-1. Open **Razer Synapse 3**
-2. Navigate to **Profiles** (top bar)
-3. Click **+** to create a new profile
+1. Open **Razer Synapse 4**
+2. Navigate to **Dashboard** → select your mouse device
+3. Click **Profiles** → **+** to create a new profile
 4. Name it: **RUST**
 5. Optionally link to the Rust game executable (not required for training)
 6. Configure base settings:
@@ -118,56 +118,76 @@ To assign a button:
 
 ### 3.1 Macro File Structure
 
-The Python generator outputs macro files to `src/output/`. Each file contains a complete Synapse-compatible macro definition:
+The Python generator outputs **two files per weapon** to `src/output/`:
 
+- **`.rzn`** — Synapse 4 native import format (XML). This is what you import directly.
+- **`.txt`** — Human-readable reference. For reviewing and debugging, not for import.
+
+The `.rzn` file follows the Synapse 4 XML macro schema:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>RECOIL_AK47</Name>
+  <Guid>unique-guid-per-generation</Guid>
+  <MacroEvents>
+    <MacroEvent>
+      <Type>3</Type>
+      <Delay>102</Delay>
+      <MouseMovement>
+        <MouseMovementEvent>
+          <Type>3</Type>
+          <X>-1</X>
+          <Y>6</Y>
+        </MouseMovementEvent>
+      </MouseMovement>
+    </MacroEvent>
+    <!-- ...continues for all shots -->
+  </MacroEvents>
+  <IsFolder>false</IsFolder>
+  <FolderGuid>00000000-0000-0000-0000-000000000000</FolderGuid>
+</Macro>
 ```
-Macro: RECOIL_[WEAPON]
-Activation: While Assigned Button is Held
-Repeat: None
 
-Sequence:
-1. Delay: [humanized_delay]ms
-2. Mouse Move: Relative Y:[pull_y] X:[pull_x]
-3. Delay: [humanized_delay]ms
-4. Mouse Move: Relative Y:[pull_y] X:[pull_x]
-... [continues for all shots in the magazine]
-```
+Each `<MacroEvent>` contains:
+- **`<Type>3</Type>`** — Mouse movement event type
+- **`<Delay>`** — Humanized delay in milliseconds before this movement
+- **`<X>`** / **`<Y>`** — Relative mouse movement in pixels (humanized, DPI-scaled)
 
-- **`pull_y`**: Vertical compensation (always negative — pulls down to counter upward recoil)
-- **`pull_x`**: Horizontal compensation (varies per shot based on weapon pattern)
-- **`humanized_delay`**: Slightly randomized delay between movements for natural feel
+### 3.2 Importing into Synapse 4
 
-### 3.2 Importing into Synapse
+Direct `.rzn` import — no manual entry needed:
 
-For each weapon macro:
+1. Open **Synapse 4** → Select your mouse device
+2. Go to the **Macro** tab (left sidebar)
+3. Click the **three-dot menu** (⋮) in the macro list
+4. Select **Import**
+5. Navigate to `src/output/` and select `RECOIL_AK47.rzn`
+6. The macro appears in your macro list, ready to assign
+7. Assign it to the corresponding toggle button (see Section 2.2)
+8. Set the macro playback to: **While Assigned Button is Held**
 
-1. Open **Synapse** → **Macro** tab (left sidebar)
-2. Click **+** to create a new macro
-3. Name it exactly: `RECOIL_AK` (or the corresponding weapon name)
-4. Set **Record Delay**: **ON**
-   - Use the generated delays — do **not** re-record manually
-5. Input the generated sequence:
-   - **Option A**: Manually enter each delay + mouse move from the output file
-   - **Option B**: If using an import tool, point it to the file in `src/output/`
-6. Set activation mode: **While Assigned Button is Held**
-7. Set repeat: **None**
-8. Assign to the corresponding button (see Section 2.2)
-
-Repeat for each weapon: `RECOIL_AK`, `RECOIL_LR300`, `RECOIL_MP5`, `RECOIL_M249`, `RECOIL_CUSTOM_SMG`.
+Repeat for each weapon:
+- `RECOIL_AK47.rzn`
+- `RECOIL_LR300.rzn`
+- `RECOIL_MP5.rzn`
+- `RECOIL_M249.rzn`
+- `RECOIL_CUSTOM_SMG.rzn`
+- `RECOIL_THOMPSON.rzn`
 
 ### 3.3 Regenerating Macros
 
-Regenerate macros periodically for fresh humanization. Each run produces unique sequences due to probabilistic variance:
+Regenerate macros periodically for fresh humanization. Each run produces unique sequences (new GUIDs, new randomized values):
 
 ```bash
 # Single weapon
-python src/generator.py --weapon ak47 --output src/output/
+python src/generator.py --weapon ak47
 
 # All weapons at once
-python src/generator.py --weapon all --output src/output/
+python src/generator.py --weapon all
 ```
 
-After regenerating, re-import the updated sequences into Synapse (Section 3.2).
+After regenerating, re-import the updated `.rzn` files into Synapse 4 (Section 3.2). The old macros can be deleted from Synapse's macro list before importing fresh ones.
 
 ---
 
@@ -278,7 +298,7 @@ For each weapon, confirm:
 | Input lag during macro | Polling rate too low | Set to 1000Hz in Synapse device settings |
 | Macro fires extra shots | Wrong activation mode | Set to **"While Held"**, not **"Toggle On/Off"** |
 | Macro active on wrong weapon | Button assignment error | Re-check button → macro mapping in Synapse |
-| Synapse doesn't detect mouse | Driver/firmware issue | Reinstall Synapse; update mouse firmware |
+| Synapse doesn't detect mouse | Driver/firmware issue | Reinstall Synapse 4; update mouse firmware |
 
 ---
 
@@ -305,8 +325,8 @@ Export your Synapse profile regularly:
 ```
 CarTuning/
 ├── backups/
-│   ├── RUST_profile_2024-01-15.synapse3
-│   └── RUST_profile_2024-02-01.synapse3
+│   ├── RUST_profile_2026-03-30.synapse4
+│   └── RUST_profile_2026-04-15.synapse4
 └── ...
 ```
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Macro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Simple Test Macro</Name>
+  <Guid>a1b2c3d4-e5f6-7890-1234-56789abcdef0</Guid>
+  <MacroEvents>
+    
+    <MacroEvent>
+      <Type>3</Type>
+      <Delay>100</Delay>
+      <MouseMovement>
+        <MouseMovementEvent>
+          <Type>3</Type>
+          <X>-1</X>
+          <Y>5</Y>
+        </MouseMovementEvent>
+      </MouseMovement>
+    </MacroEvent>
+
+    <MacroEvent>
+      <Type>3</Type>
+      <Delay>100</Delay>
+      <MouseMovement>
+        <MouseMovementEvent>
+          <Type>3</Type>
+          <X>0</X>
+          <Y>3</Y>
+        </MouseMovementEvent>
+      </MouseMovement>
+    </MacroEvent>
+
+    <MacroEvent>
+      <Type>3</Type>
+      <Delay>100</Delay>
+      <MouseMovement>
+        <MouseMovementEvent>
+          <Type>3</Type>
+          <X>1</X>
+          <Y>2</Y>
+        </MouseMovementEvent>
+      </MouseMovement>
+    </MacroEvent>
+
+  </MacroEvents>
+  <IsFolder>false</IsFolder>
+  <FolderGuid>00000000-0000-0000-0000-000000000000</FolderGuid>
+</Macro>

@@ -71,3 +71,18 @@ WeaponProfile   # loaded from JSON; fields: name, shots_per_mag, sections, human
 ShotData        # per-shot output: shot_number, delay_ms, pull_y, drift_x, is_skipped, is_overcorrected, falloff_multiplier
 HumanizationConfig  # variance parameters; constructed via from_dict(weapon_json["humanization"])
 ```
+## Important Notes
+
+- Be concise and clear when providing information to user about implementation or error faced.
+- Do not create documents in base directory.
+- For complex tasks, use sub-agents to implement the tasks parallel with accuracy.
+
+## When completing tasks:
+
+1. Analyze repository structure
+2. Use relevant skills from .github/skills (if exists)
+3. If hav any questions or uncertanity, just ask developer to clarify.
+
+## After implementation finish:
+
+- Write short summary text in console to inform developer what to expect from that implementation.

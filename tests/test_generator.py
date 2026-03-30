@@ -166,10 +166,42 @@ class TestSynapseExport(unittest.TestCase):
         gen = MacroGenerator(output_dir=self.temp_dir, dpi=800)
         path = gen.export('ak47', seed=42)
         self.assertTrue(os.path.exists(path))
+        self.assertTrue(path.endswith('.rzn'))
         
         with open(path, 'r') as f:
             content = f.read()
         self.assertIn('RECOIL_AK47', content)
+        self.assertIn('<?xml', content)
+        self.assertIn('<MacroEvent>', content)
+    
+    def test_export_creates_txt_reference(self):
+        gen = MacroGenerator(output_dir=self.temp_dir, dpi=800)
+        gen.export('ak47', seed=42)
+        txt_path = os.path.join(self.temp_dir, 'RECOIL_AK47.txt')
+        self.assertTrue(os.path.exists(txt_path))
+    
+    def test_rzn_format_valid_xml(self):
+        seq = self.gen.generate_sequence('ak47', seed=42)
+        output = self.gen.format_rzn(seq, 'ak47')
+        self.assertIn('<?xml version="1.0" encoding="utf-8"?>', output)
+        self.assertIn('<Macro xmlns', output)
+        self.assertIn('<Name>RECOIL_AK47</Name>', output)
+        self.assertIn('<Guid>', output)
+        self.assertIn('<MacroEvents>', output)
+        self.assertIn('<Type>3</Type>', output)
+        self.assertIn('<Delay>', output)
+        self.assertIn('<MouseMovementEvent>', output)
+        self.assertIn('<IsFolder>false</IsFolder>', output)
+        self.assertIn('</Macro>', output)
+    
+    def test_rzn_unique_guids(self):
+        seq = self.gen.generate_sequence('ak47', seed=42)
+        rzn1 = self.gen.format_rzn(seq, 'ak47')
+        rzn2 = self.gen.format_rzn(seq, 'ak47')
+        # Each call should produce a unique GUID
+        guid1 = [l for l in rzn1.split('\n') if '<Guid>' in l][0]
+        guid2 = [l for l in rzn2.split('\n') if '<Guid>' in l][0]
+        self.assertNotEqual(guid1, guid2)
     
     def test_export_all_creates_files(self):
         gen = MacroGenerator(output_dir=self.temp_dir, dpi=800)
@@ -177,6 +209,7 @@ class TestSynapseExport(unittest.TestCase):
         self.assertGreaterEqual(len(paths), 6)
         for path in paths:
             self.assertTrue(os.path.exists(path))
+            self.assertTrue(path.endswith('.rzn'))
 
 
 if __name__ == '__main__':

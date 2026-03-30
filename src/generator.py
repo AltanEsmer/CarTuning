@@ -8,6 +8,7 @@ import json
 import os
 import argparse
 import random
+import uuid
 from pathlib import Path
 from typing import List, Optional
 from dataclasses import dataclass
@@ -182,22 +183,87 @@ class MacroGenerator:
         
         return "\n".join(lines)
     
+    def format_rzn(self, sequence: List[ShotData], weapon_name: str) -> str:
+        """
+        Format a humanized sequence into Synapse 4 .rzn XML format.
+        
+        The .rzn format is XML with MacroEvent nodes containing:
+        - Type 3 (mouse movement event)
+        - Delay in milliseconds
+        - MouseMovement with relative X/Y values
+        """
+        macro_guid = str(uuid.uuid4())
+        
+        lines = []
+        lines.append('<?xml version="1.0" encoding="utf-8"?>')
+        lines.append('<Macro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">')
+        lines.append(f'  <Name>RECOIL_{weapon_name.upper()}</Name>')
+        lines.append(f'  <Guid>{macro_guid}</Guid>')
+        lines.append('  <MacroEvents>')
+        
+        for shot in sequence:
+            delay = round(shot.delay_ms)
+            
+            if shot.is_skipped:
+                # Skipped shot — delay only, zero mouse movement
+                lines.append('    <MacroEvent>')
+                lines.append('      <Type>3</Type>')
+                lines.append(f'      <Delay>{delay}</Delay>')
+                lines.append('      <MouseMovement>')
+                lines.append('        <MouseMovementEvent>')
+                lines.append('          <Type>3</Type>')
+                lines.append('          <X>0</X>')
+                lines.append('          <Y>0</Y>')
+                lines.append('        </MouseMovementEvent>')
+                lines.append('      </MouseMovement>')
+                lines.append('    </MacroEvent>')
+                continue
+            
+            y = round(shot.pull_y)
+            x = round(shot.drift_x)
+            
+            lines.append('    <MacroEvent>')
+            lines.append('      <Type>3</Type>')
+            lines.append(f'      <Delay>{delay}</Delay>')
+            lines.append('      <MouseMovement>')
+            lines.append('        <MouseMovementEvent>')
+            lines.append('          <Type>3</Type>')
+            lines.append(f'          <X>{x}</X>')
+            lines.append(f'          <Y>{y}</Y>')
+            lines.append('        </MouseMovementEvent>')
+            lines.append('      </MouseMovement>')
+            lines.append('    </MacroEvent>')
+        
+        lines.append('  </MacroEvents>')
+        lines.append('  <IsFolder>false</IsFolder>')
+        lines.append('  <FolderGuid>00000000-0000-0000-0000-000000000000</FolderGuid>')
+        lines.append('</Macro>')
+        
+        return '\n'.join(lines)
+    
     def export(self, weapon_name: str, seed: Optional[int] = None) -> str:
         """
         Generate and export a macro for a weapon.
+        Outputs both .rzn (Synapse 4 import) and .txt (human-readable reference).
         
-        Returns the output file path.
+        Returns the .rzn output file path.
         """
         sequence = self.generate_sequence(weapon_name, seed=seed)
-        macro_text = self.format_synapse(sequence, weapon_name)
-        
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = self.output_dir / f"RECOIL_{weapon_name.upper()}.txt"
         
-        with open(output_path, 'w') as f:
-            f.write(macro_text)
+        # Primary output: .rzn for Synapse 4 import
+        rzn_text = self.format_rzn(sequence, weapon_name)
+        rzn_path = self.output_dir / f"RECOIL_{weapon_name.upper()}.rzn"
+        with open(rzn_path, 'w', encoding='utf-8') as f:
+            f.write(rzn_text)
         
-        return str(output_path)
+        # Secondary output: .txt for human-readable reference
+        txt_text = self.format_synapse(sequence, weapon_name)
+        txt_path = self.output_dir / f"RECOIL_{weapon_name.upper()}.txt"
+        with open(txt_path, 'w') as f:
+            f.write(txt_text)
+        
+        return str(rzn_path)
     
     def export_all(self, seed: Optional[int] = None) -> List[str]:
         """Export macros for all available weapons."""
