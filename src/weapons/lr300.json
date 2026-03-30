@@ -1,0 +1,50 @@
+{
+  "weapon_name": "LR-300",
+  "shots_per_mag": 30,
+  "total_pull_distance_px": [80, 100],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "Mostly vertical pull with slight rightward drift in later shots",
+  "difficulty": "Medium",
+  "fire_rate_rpm": 600,
+  "base_delay_ms": 100.0,
+  "sections": [
+    {
+      "name": "early",
+      "start_shot": 1,
+      "end_shot": 10,
+      "pull_y_per_shot": [2.5, 3.5],
+      "drift_x_per_shot": [0, 0],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "mid",
+      "start_shot": 11,
+      "end_shot": 20,
+      "pull_y_per_shot": [2.5, 3.5],
+      "drift_x_per_shot": [0, 0.5],
+      "compensation_pct": 0.95
+    },
+    {
+      "name": "late",
+      "start_shot": 21,
+      "end_shot": 30,
+      "pull_y_per_shot": [2, 3],
+      "drift_x_per_shot": [0.5, 1.0],
+      "compensation_pct": 0.90
+    }
+  ],
+  "humanization": {
+    "delay_variance_ms": 8.0,
+    "pull_variance_px": 0.8,
+    "x_variance_px": 0.3,
+    "skip_probability": 0.03,
+    "overcorrect_probability": 0.01,
+    "overcorrect_magnitude": 1.2,
+    "falloff_stages": [
+      {"end_shot": 10, "multiplier": 1.0},
+      {"end_shot": 20, "multiplier": 0.95},
+      {"end_shot": 30, "multiplier": 0.90}
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "weapon_name": "AK-47",
+  "shots_per_mag": 30,
+  "total_pull_distance_px": [120, 150],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "S-shaped curve with strong initial pull, easing in the middle, and rightward drift in the closing phase",
+  "difficulty": "Hard",
+  "fire_rate_rpm": 600,
+  "base_delay_ms": 100.0,
+  "sections": [
+    {
+      "name": "opening",
+      "start_shot": 1,
+      "end_shot": 5,
+      "pull_y_per_shot": [6, 7],
+      "drift_x_per_shot": [-2, -1],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "middle_early",
+      "start_shot": 6,
+      "end_shot": 12,
+      "pull_y_per_shot": [4, 5],
+      "drift_x_per_shot": [-1, 0],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "middle_late",
+      "start_shot": 13,
+      "end_shot": 20,
+      "pull_y_per_shot": [3, 4],
+      "drift_x_per_shot": [1, 2],
+      "compensation_pct": 0.95
+    },
+    {
+      "name": "closing",
+      "start_shot": 21,
+      "end_shot": 30,
+      "pull_y_per_shot": [2, 3],
+      "drift_x_per_shot": [2, 3],
+      "compensation_pct": 0.87
+    }
+  ],
+  "humanization": {
+    "delay_variance_ms": 10.0,
+    "pull_variance_px": 1.0,
+    "x_variance_px": 0.5,
+    "skip_probability": 0.03,
+    "overcorrect_probability": 0.02,
+    "overcorrect_magnitude": 1.2,
+    "falloff_stages": [
+      {"end_shot": 10, "multiplier": 1.0},
+      {"end_shot": 20, "multiplier": 0.95},
+      {"end_shot": 30, "multiplier": 0.87}
+    ]
+  }
+}

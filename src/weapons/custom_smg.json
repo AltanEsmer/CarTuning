@@ -1,0 +1,38 @@
+{
+  "weapon_name": "Custom SMG",
+  "shots_per_mag": 24,
+  "total_pull_distance_px": [60, 80],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "Erratic and random pattern with unpredictable Y spikes and wide horizontal variance",
+  "difficulty": "Hard",
+  "fire_rate_rpm": 600,
+  "base_delay_ms": 100.0,
+  "sections": [
+    {
+      "name": "all",
+      "start_shot": 1,
+      "end_shot": 24,
+      "pull_y_per_shot": [2, 4],
+      "drift_x_per_shot": [-2, 2],
+      "compensation_pct": 1.0
+    }
+  ],
+  "special_variance": {
+    "y_spike_probability": 0.2,
+    "y_spike_magnitude": 2.0
+  },
+  "humanization": {
+    "delay_variance_ms": 12.0,
+    "pull_variance_px": 1.5,
+    "x_variance_px": 2.0,
+    "skip_probability": 0.05,
+    "overcorrect_probability": 0.03,
+    "overcorrect_magnitude": 1.2,
+    "falloff_stages": [
+      {"end_shot": 8, "multiplier": 1.0},
+      {"end_shot": 16, "multiplier": 0.95},
+      {"end_shot": 24, "multiplier": 0.90}
+    ]
+  }
+}

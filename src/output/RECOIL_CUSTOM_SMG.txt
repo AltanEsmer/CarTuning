@@ -1,0 +1,50 @@
+Macro: RECOIL_CUSTOM_SMG
+Activation: While Assigned Button is Held
+Repeat: None
+
+Sequence:
+  1. Delay: 90.1ms
+  2. Mouse Move: Relative Y:2 X:-2
+  3. Delay: 98.8ms
+  4. Mouse Move: Relative Y:2 X:-1
+  5. Delay: 104.5ms
+  6. Mouse Move: Relative Y:2 X:-3
+  7. Delay: 100.4ms
+  8. Mouse Move: Relative Y:1 X:-1
+  9. Delay: 106.3ms
+  10. Mouse Move: Relative Y:1 X:0
+  11. Delay: 105.2ms
+  12. Mouse Move: Relative Y:3 X:-1
+  13. Delay: 112.0ms
+  14. Mouse Move: Relative Y:1 X:1
+  15. Delay: 94.5ms
+  16. Mouse Move: Relative Y:1 X:-2
+  17. Delay: 95.9ms
+  18. Mouse Move: Relative Y:3 X:1
+  19. Delay: 100.6ms
+  20. Mouse Move: Relative Y:2 X:1
+  21. Delay: 103.5ms
+  22. Mouse Move: Relative Y:2 X:1
+  23. Delay: 104.3ms
+  24. Mouse Move: Relative Y:4 X:1
+  25. Delay: 91.3ms
+  26. Mouse Move: Relative Y:2 X:2
+  27. Delay: 103.6ms
+  28. Mouse Move: Relative Y:4 X:0
+  29. Delay: 100.9ms
+  30. Mouse Move: Relative Y:3 X:1
+  31. Delay: 90.6ms
+  32. Mouse Move: Relative Y:5 X:1
+  33. Delay: 102.2ms
+  34. Mouse Move: Relative Y:5 X:-1
+  35. Delay: 92.0ms
+  36. Mouse Move: Relative Y:5 X:2
+  37. Delay: 101.6ms
+  38. Mouse Move: Relative Y:2 X:0
+  39. Delay: 98.62553972718973ms
+  40. Delay: 95.87030495051573ms
+  41. Delay: 94.01872741421809ms
+  42. Delay: 96.0ms
+  43. Mouse Move: Relative Y:4 X:2
+  44. Delay: 88.0ms
+  45. Mouse Move: Relative Y:4 X:2

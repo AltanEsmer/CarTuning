@@ -1,0 +1,59 @@
+{
+  "weapon_name": "M249",
+  "shots_per_mag": 100,
+  "total_pull_distance_px": [200, 250],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "Ramping vertical pull that increases in intensity across four stages with progressive horizontal drift",
+  "difficulty": "Hard",
+  "fire_rate_rpm": 750,
+  "base_delay_ms": 80.0,
+  "sections": [
+    {
+      "name": "stage_1",
+      "start_shot": 1,
+      "end_shot": 20,
+      "pull_y_per_shot": [3, 4],
+      "drift_x_per_shot": [0, 0],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "stage_2",
+      "start_shot": 21,
+      "end_shot": 50,
+      "pull_y_per_shot": [4, 5],
+      "drift_x_per_shot": [0, 1],
+      "compensation_pct": 0.95
+    },
+    {
+      "name": "stage_3",
+      "start_shot": 51,
+      "end_shot": 80,
+      "pull_y_per_shot": [5, 6],
+      "drift_x_per_shot": [1, 2],
+      "compensation_pct": 0.85
+    },
+    {
+      "name": "stage_4",
+      "start_shot": 81,
+      "end_shot": 100,
+      "pull_y_per_shot": [6, 7],
+      "drift_x_per_shot": [2, 3],
+      "compensation_pct": 0.80
+    }
+  ],
+  "humanization": {
+    "delay_variance_ms": 10.0,
+    "pull_variance_px": 1.2,
+    "x_variance_px": 0.6,
+    "skip_probability": 0.04,
+    "overcorrect_probability": 0.02,
+    "overcorrect_magnitude": 1.2,
+    "falloff_stages": [
+      {"end_shot": 20, "multiplier": 1.0},
+      {"end_shot": 50, "multiplier": 0.95},
+      {"end_shot": 80, "multiplier": 0.85},
+      {"end_shot": 100, "multiplier": 0.80}
+    ]
+  }
+}
