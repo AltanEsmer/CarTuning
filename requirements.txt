@@ -1,0 +1,5 @@
+interception-python
+pynput
+numpy
+matplotlib
+pytest
