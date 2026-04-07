@@ -39,6 +39,7 @@ adjusted_pull = base_pull * (800 / your_dpi)
 | MP5 | 30 | 50–70 | Mostly vertical | Minimal | Easy | Lowest |
 | Custom SMG | 24 | 60–80 | Erratic / random | Random ±2 px | Hard | High (randomness) |
 | Thompson | 30 | 40–60 | Gentle curve | Minimal | Easy | Low |
+| R4-C (R6X) | 26 | 160–195 | Steep vertical | Gradual right drift | Hard | Medium |
 
 ---
 
@@ -213,6 +214,7 @@ adjusted_pull = base_pull * (800 / your_dpi)
 | MP5 | ±8 ms | ±0.5 px | 2% | 1% | 100 / 95 / 92 |
 | Custom SMG | ±12 ms | ±1.5 px | 5% | 3% | 100 / 95 / 90 |
 | Thompson | ±8 ms | ±0.6 px | 2% | 1% | 100 / 95 / 92 |
+| R4-C (R6X) | ±14 ms | ±1.3 px | 4% | 2.5% | 100 / 95 / 88 / 80 |
 
 ### Column Definitions
 
@@ -226,6 +228,56 @@ adjusted_pull = base_pull * (800 / your_dpi)
 
 ---
 
+## Rainbow Six Siege X — R4-C (Ash)
+
+The first R6 Siege X weapon profile. Ash's R4-C is a high-fire-rate assault rifle with aggressive vertical recoil and minimal horizontal drift — a pure pull-down weapon with minor lateral adjustments.
+
+#### Stats
+
+| Stat | Value |
+|------|-------|
+| Game | Rainbow Six Siege X |
+| Operator | Ash |
+| Fire Rate | 860 RPM |
+| Magazine | 25+1 (nerfed from 30 in Y9S3) |
+| Total Pull (est.) | 160–195 px at 800 DPI |
+| Difficulty | Hard |
+| Curve Shape | Steep vertical → gradual rightward drift → stabilizes |
+
+#### Per-Section Breakdown
+
+| Section | Shots | Y-Pull (px/shot) | X-Drift (px/shot) | Compensation % | Notes |
+|---------|-------|-------------------|---------------------|----------------|----------------------------------------------|
+| Opening Climb | 1–5 | 8–10 | 0 to 1 (right) | 100% | Sharp initial vertical kick |
+| Sustained Vertical | 6–10 | 7–9 | −1 to 3 | 100% | Drift onset, left-right variance |
+| Mid-Mag Instability | 11–15 | 6–8 | −2 to 4 (random) | 95% | Peak horizontal unpredictability |
+| Tapering Left Settle | 16–20 | 5–7 | −1 to 3 | 90% | Vertical eases, drift settling |
+| Closing Falloff | 21–26 | 4–6 | −1 to 2 | 85% | End-of-mag degradation |
+
+#### Humanization Tuning
+
+Tuned more aggressively than Rust profiles due to BattlEye + Shield Guard anti-cheat:
+
+| Parameter | Value | vs. CS2 AK-47 |
+|-----------|-------|---------------|
+| Delay Variance | ±14 ms | +2 ms (faster fire rate needs more jitter) |
+| Pull Variance | ±1.3 px | +0.1 px |
+| X Variance | ±1.0 px | +0.2 px (critical — low-horizontal weapons need X noise) |
+| Skip Probability | 4% | +1% (breaks rhythm more) |
+| Overcorrect Probability | 2.5% | +0.5% |
+| Overcorrect Magnitude | 1.18× | +0.03× |
+| Falloff Stages | 100 / 95 / 88 / 80 | 4 stages (vs 3) — steeper late-mag decay |
+
+#### Key Characteristics
+
+- **Pull-down dominant** — ~90% of compensation is vertical.
+- **Low horizontal complexity** — unlike CS2 AK-47's zigzag, R4-C drifts gradually rightward.
+- **Shorter mag** — 26 shots means the macro finishes faster, less exposure time.
+- **BattlEye environment** — humanization params pushed higher than Rust profiles.
+- **Attachment note**: Profile assumes **no barrel attachment + vertical grip** (raw recoil). Reduce Y values ~5% for flash hider, reduce X variance ~35% for compensator.
+
+---
+
 ## Data Sources
 
 | Source | Usage |
@@ -234,3 +286,7 @@ adjusted_pull = base_pull * (800 / your_dpi)
 | Community recoil spreadsheets | Pull distances and patterns |
 | Frame-by-frame YouTube analysis | Curve shape verification |
 | In-game testing on training servers | Final validation and calibration |
+| Rainbow Six Wiki (Fandom) | R4-C stats, fire rate, mag size |
+| Liquipedia Rainbow Six | R4-C weapon data cross-reference |
+| SiegeGG Designer's Notes (Y9S3) | R4-C nerf details (mag 30→25) |
+| UnknownCheats R6 Recoil Data Collection | Per-shot pixel drift estimates |

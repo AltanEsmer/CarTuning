@@ -327,7 +327,24 @@ def main():
         action='store_true',
         help='List available weapons'
     )
-    
+    parser.add_argument(
+        '--live', '-l',
+        action='store_true',
+        help='Live playback via Interception kernel driver (CS2/R6). Requires: pip install interception-python and the Interception driver installed.'
+    )
+    parser.add_argument(
+        '--hold',
+        action='store_true',
+        default=True,
+        help='Hold-to-fire mode for --live: playback loops while left mouse button is held (default: True)'
+    )
+    parser.add_argument(
+        '--no-hold',
+        dest='hold',
+        action='store_false',
+        help='Single-play mode for --live: play the sequence once and exit'
+    )
+
     args = parser.parse_args()
     
     gen = MacroGenerator(
@@ -347,13 +364,40 @@ def main():
     print(f"  DPI: {args.dpi} | Scale: {gen.dpi_scale:.2f}x")
     print(f"{'='*50}")
     
-    if args.weapon == 'all':
+    if args.live:
+        # Live playback via Interception kernel driver
+        from executor import InterceptionExecutor
+        if not InterceptionExecutor.is_available():
+            print(
+                "\n  [!] interception-python is not installed.\n"
+                "      Run: pip install interception-python\n"
+                "      Then install the Interception driver from:\n"
+                "        https://github.com/oblitum/Interception\n"
+            )
+            return
+
+        weapon = args.weapon if args.weapon != 'all' else None
+        if weapon is None:
+            print("  [!] --live requires a specific weapon (not 'all').")
+            return
+
+        print(f"\n  Generating sequence: {weapon}")
+        seq = gen.generate_sequence(weapon, seed=args.seed)
+        if args.stats:
+            gen.print_sequence_stats(weapon, seq)
+
+        executor = InterceptionExecutor()
+        executor.play(seq, hold_mode=args.hold)
+
+    elif args.weapon == 'all':
         print(f"\n  Generating all weapons...")
         paths = gen.export_all(seed=args.seed)
         if args.stats:
             for weapon in gen.list_weapons():
                 seq = gen.generate_sequence(weapon, seed=args.seed)
                 gen.print_sequence_stats(weapon, seq)
+        print(f"\n  Done. Output: {gen.output_dir}")
+        print(f"{'='*50}\n")
     else:
         print(f"\n  Generating: {args.weapon}")
         path = gen.export(args.weapon, seed=args.seed)
@@ -361,9 +405,8 @@ def main():
         if args.stats:
             seq = gen.generate_sequence(args.weapon, seed=args.seed)
             gen.print_sequence_stats(args.weapon, seq)
-    
-    print(f"\n  Done. Output: {gen.output_dir}")
-    print(f"{'='*50}\n")
+        print(f"\n  Done. Output: {gen.output_dir}")
+        print(f"{'='*50}\n")
 
 
 if __name__ == '__main__':

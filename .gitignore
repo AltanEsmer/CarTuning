@@ -3,3 +3,4 @@ __pycache__/
 src/output/
 .pytest_cache/
 *.csv
+src/__pycache__/

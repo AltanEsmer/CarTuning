@@ -1,0 +1,67 @@
+{
+  "weapon_name": "R6X_R4-C",
+  "shots_per_mag": 26,
+  "total_pull_distance_px": [160, 195],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "Sharp vertical climb (first 5), sustained vertical with drift onset (6-10), mid-mag lateral instability (11-15), tapering vertical with left settle (16-20), end-of-mag falloff (21-26)",
+  "difficulty": "Hard",
+  "fire_rate_rpm": 860,
+  "base_delay_ms": 69.8,
+  "sections": [
+    {
+      "name": "opening_climb",
+      "start_shot": 1,
+      "end_shot": 5,
+      "pull_y_per_shot": [8, 10],
+      "drift_x_per_shot": [0, 1],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "sustained_vertical",
+      "start_shot": 6,
+      "end_shot": 10,
+      "pull_y_per_shot": [7, 9],
+      "drift_x_per_shot": [-1, 3],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "mid_mag_instability",
+      "start_shot": 11,
+      "end_shot": 15,
+      "pull_y_per_shot": [6, 8],
+      "drift_x_per_shot": [-2, 4],
+      "compensation_pct": 0.95
+    },
+    {
+      "name": "tapering_left_settle",
+      "start_shot": 16,
+      "end_shot": 20,
+      "pull_y_per_shot": [5, 7],
+      "drift_x_per_shot": [-1, 3],
+      "compensation_pct": 0.90
+    },
+    {
+      "name": "closing_falloff",
+      "start_shot": 21,
+      "end_shot": 26,
+      "pull_y_per_shot": [4, 6],
+      "drift_x_per_shot": [-1, 2],
+      "compensation_pct": 0.85
+    }
+  ],
+  "humanization": {
+    "delay_variance_ms": 14.0,
+    "pull_variance_px": 1.3,
+    "x_variance_px": 1.0,
+    "skip_probability": 0.04,
+    "overcorrect_probability": 0.025,
+    "overcorrect_magnitude": 1.18,
+    "falloff_stages": [
+      {"end_shot": 8, "multiplier": 1.0},
+      {"end_shot": 15, "multiplier": 0.95},
+      {"end_shot": 22, "multiplier": 0.88},
+      {"end_shot": 26, "multiplier": 0.80}
+    ]
+  }
+}

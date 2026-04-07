@@ -1,0 +1,74 @@
+{
+  "weapon_name": "CS2_AK-47",
+  "shots_per_mag": 30,
+  "total_pull_distance_px": [140, 170],
+  "reference_dpi": 800,
+  "polling_rate_hz": 1000,
+  "curve_shape": "Steep vertical pull (first 10), sharp rightward sweep (11-15), then left-right zigzag (16-30)",
+  "difficulty": "Hard",
+  "fire_rate_rpm": 600,
+  "base_delay_ms": 90.0,
+  "sections": [
+    {
+      "name": "opening_vertical",
+      "start_shot": 1,
+      "end_shot": 6,
+      "pull_y_per_shot": [7, 8],
+      "drift_x_per_shot": [0, 0],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "vertical_with_left_drift",
+      "start_shot": 7,
+      "end_shot": 10,
+      "pull_y_per_shot": [7, 8],
+      "drift_x_per_shot": [-2, -4],
+      "compensation_pct": 1.0
+    },
+    {
+      "name": "rightward_sweep",
+      "start_shot": 11,
+      "end_shot": 15,
+      "pull_y_per_shot": [6, 8],
+      "drift_x_per_shot": [-5, -8],
+      "compensation_pct": 0.95
+    },
+    {
+      "name": "zigzag_left",
+      "start_shot": 16,
+      "end_shot": 22,
+      "pull_y_per_shot": [5, 7],
+      "drift_x_per_shot": [5, 8],
+      "compensation_pct": 0.90
+    },
+    {
+      "name": "zigzag_right",
+      "start_shot": 23,
+      "end_shot": 27,
+      "pull_y_per_shot": [4, 6],
+      "drift_x_per_shot": [-5, -8],
+      "compensation_pct": 0.85
+    },
+    {
+      "name": "closing_erratic",
+      "start_shot": 28,
+      "end_shot": 30,
+      "pull_y_per_shot": [3, 5],
+      "drift_x_per_shot": [3, 6],
+      "compensation_pct": 0.80
+    }
+  ],
+  "humanization": {
+    "delay_variance_ms": 12.0,
+    "pull_variance_px": 1.2,
+    "x_variance_px": 0.8,
+    "skip_probability": 0.03,
+    "overcorrect_probability": 0.02,
+    "overcorrect_magnitude": 1.15,
+    "falloff_stages": [
+      {"end_shot": 10, "multiplier": 1.0},
+      {"end_shot": 20, "multiplier": 0.95},
+      {"end_shot": 30, "multiplier": 0.88}
+    ]
+  }
+}

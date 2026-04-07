@@ -19,10 +19,11 @@ The core innovation is the **humanization engine** — a probabilistic layer tha
 
 ## Features
 
-- **6 weapon profiles** — AK-47, LR-300, M249, MP5, Custom SMG, Thompson
+- **7 weapon profiles** — AK-47, LR-300, M249, MP5, Custom SMG, Thompson, R4-C (R6 Siege X), CS2 AK-47
 - **Probabilistic humanization engine** — delay variance, pull variance, skip probability, over-correction simulation
 - **Staged falloff** — shot fatigue modeling that degrades compensation naturally over sustained fire
-- **Synapse-ready output** — drop the config and go, no manual formatting
+- **Synapse-ready output** — `.rzn` (Synapse 4 import) + `.txt` (human-readable reference)
+- **Live playback via Interception** — kernel-level HID injection that reaches CS2's raw input pipeline (`--live`)
 - **Pattern visualization & validation** — plot generated patterns against raw recoil data with Matplotlib
 - **JSON-based weapon profiles** — dead simple to edit, extend, or build your own
 
@@ -43,17 +44,21 @@ CarTuning/
 ├── src/
 │   ├── generator.py
 │   ├── humanizer.py
+│   ├── executor.py          ← Interception live playback
 │   ├── weapons/
 │   │   ├── ak47.json
+│   │   ├── cs2_ak47.json
 │   │   ├── lr300.json
 │   │   ├── m249.json
 │   │   ├── mp5.json
 │   │   ├── custom_smg.json
-│   │   └── thompson.json
+│   │   ├── thompson.json
+│   │   └── r6x_r4c.json
 │   └── output/
 ├── tests/
 │   ├── test_generator.py
 │   ├── test_humanizer.py
+│   ├── test_executor.py
 │   └── visualizer.py
 └── tools/
     └── mouse_logger.py
@@ -69,8 +74,11 @@ cd CarTuning
 # Install dependencies
 pip install -r requirements.txt
 
-# Generate a macro for the AK-47
+# Generate a macro for the AK-47 (Synapse .rzn export)
 python src/generator.py --weapon ak47
+
+# Live playback in CS2 via Interception (see Live Playback section below)
+python src/generator.py --weapon cs2_ak47 --live
 
 # Visualize the humanized pattern vs raw recoil
 python tests/visualizer.py --weapon ak47
@@ -81,6 +89,46 @@ python src/generator.py --all
 
 Generated configs land in `src/output/` — ready to load into Synapse.
 
+## Live Playback (Interception)
+
+Standard `SendInput` is invisible to games using raw input (CS2, R6). The **Interception driver** sits inside the HID stack — its events appear in `WM_INPUT` as real hardware input.
+
+### Setup
+
+1. **Install the Interception driver** (system-level, requires reboot):
+   ```
+   https://github.com/oblitum/Interception
+   ```
+   Run the installer as Administrator, reboot.
+
+2. **Install the Python wrapper:**
+   ```bash
+   pip install interception-python
+   ```
+
+### Usage
+
+```bash
+# Hold-to-fire mode (default): hold left mouse, macro plays, release to stop
+python src/generator.py --weapon cs2_ak47 --live
+
+# Single-play mode: fires once through the sequence
+python src/generator.py --weapon cs2_ak47 --live --no-hold
+
+# With DPI scaling
+python src/generator.py --weapon cs2_ak47 --live --dpi 1600
+
+# Press F8 at any time to abort live playback
+```
+
+### Game Compatibility
+
+| Game | Anti-Cheat | Interception Works? | Notes |
+|------|-----------|---------------------|-------|
+| **CS2** | VAC | ✅ Yes | VAC doesn't block the driver |
+| **R6 Siege** | BattlEye | 🟡 Uncertain | BattlEye detection varies |
+| **Rust** | EAC | ❌ No | EAC refuses to launch with driver loaded |
+
 ## Tech Stack
 
 | Component       | Technology          |
@@ -88,8 +136,9 @@ Generated configs land in `src/output/` — ready to load into Synapse.
 | Core Language   | Python 3.10+        |
 | Math / RNG      | NumPy               |
 | Visualization   | Matplotlib          |
+| Live Input      | interception-python |
 | Data Format     | JSON                |
-| Output Target   | Synapse macro format |
+| Output Target   | Synapse 4 `.rzn` / Interception live |
 
 ## Documentation
 
